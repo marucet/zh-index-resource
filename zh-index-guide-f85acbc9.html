@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊猫体育 · 信息卡介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f0e8;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            color: #2e2a24;
+            line-height: 1.65;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 980px;
+            width: 100%;
+        }
+
+        /* hero 区域 —— 温和的主视觉 */
+        .hero {
+            background: #eae3d7;
+            border-radius: 32px;
+            padding: 2.6rem 2rem 2.2rem;
+            margin-bottom: 2.6rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #3a322a;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .subhead {
+            font-size: 1rem;
+            color: #5f554a;
+            border-top: 1px solid #cdc3b5;
+            display: inline-block;
+            padding-top: 0.5rem;
+            padding-left: 0.6rem;
+            padding-right: 0.6rem;
+            margin-top: 0.2rem;
+        }
+
+        .hero .hint {
+            margin-top: 1.6rem;
+            font-size: 0.95rem;
+            background: rgba(255, 247, 235, 0.5);
+            padding: 0.8rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+            color: #4d443a;
+            border: 1px solid #d5cbbc;
+        }
+
+        /* 卡片通用设计 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2.2rem 0;
+        }
+
+        .card {
+            background: #ffffffec;
+            backdrop-filter: blur(2px);
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03), 0 6px 18px rgba(60, 50, 40, 0.02);
+            border: 1px solid #e6ddcf;
+            transition: box-shadow 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 20px rgba(80, 60, 40, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.9rem;
+            letter-spacing: 0.01em;
+            color: #3e352b;
+            border-left: 4px solid #b7a48b;
+            padding-left: 0.8rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #3f3932;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .card ul li {
+            padding: 0.25rem 0;
+            position: relative;
+            padding-left: 1.1rem;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #ab937b;
+            font-weight: 600;
+        }
+
+        /* 引用块 / 提示框 */
+        .callout {
+            background: #eae2d4;
+            border-radius: 20px;
+            padding: 1.5rem 1.8rem;
+            margin: 2rem 0;
+            border-left: 6px solid #b09a82;
+            color: #3c352e;
+            font-style: normal;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .callout strong {
+            font-weight: 600;
+            color: #2d261f;
+        }
+
+        .callout a {
+            color: #4c3f31;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b7a086;
+        }
+
+        .callout a:hover {
+            color: #1f1914;
+            text-decoration-color: #7f6b55;
+        }
+
+        /* 自然链接段落 (文章排版) */
+        .article-block {
+            background: transparent;
+            padding: 0.2rem 0 1rem;
+            font-size: 1rem;
+        }
+
+        .article-block p {
+            margin: 1.1rem 0;
+        }
+
+        .article-block a {
+            color: #4a3f34;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b7a086;
+            font-weight: 450;
+        }
+
+        .article-block a:hover {
+            color: #1b1611;
+            text-decoration-color: #7f6b55;
+        }
+
+        .faq-summary {
+            background: #f3ede4;
+            border-radius: 24px;
+            padding: 1.8rem 1.8rem 1.2rem;
+            margin: 2rem 0 1.8rem;
+            border: 1px solid #dfd4c4;
+        }
+
+        .faq-summary h4 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #3f352b;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #cdc0ad;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item .question {
+            font-weight: 500;
+            color: #3d342b;
+        }
+
+        .faq-item .answer {
+            color: #534a40;
+            margin-top: 0.2rem;
+            padding-left: 0.6rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dacebc;
+            margin: 2rem 0 1.4rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #7b6f61;
+            margin: 3rem 0 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.2rem 0.8rem; }
+            .hero { padding: 1.8rem 1.2rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .card-grid { gap: 1rem; }
+            .card { padding: 1.4rem 1.2rem; }
+            .callout { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- hero 主视觉 -->
+        <div class="hero">
+            <h1>熊猫体育 · 信息卡片</h1>
+            <div class="subhead">日常查询 · 对照参考 · 延伸阅读</div>
+            <div class="hint">✦ 从生活视角理解运动与信息</div>
+        </div>
+
+        <!-- 用途卡片 + 适合人群卡片 (网格) -->
+        <div class="card-grid">
+            <div class="card">
+                <h3>📋 日常用途</h3>
+                <p>无论是快速查阅赛程、对照队伍数据，还是回顾过往赛事记录，<strong>熊猫体育</strong> 都提供了一种轻量的信息组织方式。你可以把它当作一个常备的参考入口，减少在不同页面之间反复跳转的麻烦。</p>
+                <ul>
+                    <li>赛事日历与结果对照</li>
+                    <li>基础数据横向比较</li>
+                    <li>主题分类下的延伸浏览</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>👥 适合人群</h3>
+                <p>不要求专业背景，也不预设固定习惯。以下几类使用者可能觉得尤其顺手：</p>
+                <ul>
+                    <li>日常关注体育信息、想要集中浏览的人</li>
+                    <li>需要快速对照不同项目或队伍数据的爱好者</li>
+                    <li>希望保持阅读节奏、不被过度推送打扰的用户</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 引用块 / 提示框：强调自然使用 -->
+        <div class="callout">
+            <strong>📎 使用提示</strong><br>
+            你可以将 <a href="https://zh-index-pandasports.com">熊猫体育</a> 加入浏览器书签，作为日常查询的起点。页面结构偏重信息组织，适合在需要对照、回顾或随意浏览时打开。没有强制推送，节奏由自己掌握。
+        </div>
+
+        <!-- 自然链接段落 (文章排版) 嵌入链接 -->
+        <div class="article-block">
+            <p>很多时候，我们打开一个页面只是为了确认某个日期、某场比赛的结果或者某支队伍近期的走势。这时候，一个结构清晰、信息层级分明的索引页会比铺满动态内容的门户更顺手。<a href="https://zh-index-pandasports.com">熊猫体育</a> 在页面设计上偏向于目录式呈现，把常用的条目和分类放在容易找到的位置，减少无关干扰。</p>
+
+            <p>从另一个角度看，信息卡片式的布局也方便在手机和电脑之间切换阅读。卡片之间的留白让眼睛有休息的间隙，而统一的视觉语言降低了认知负担。如果你倾向于把网络浏览当作一种安静的查阅行为，而不是被动接收信息流，那么这种风格可能会让你觉得舒服。</p>
+        </div>
+
+        <!-- FAQ 摘要 (采用问答卡片) -->
+        <div class="faq-summary">
+            <h4>❓ 常见想法摘要</h4>
+            <div class="faq-item">
+                <div class="question">Q：这个页面适合每天打开吗？</div>
+                <div class="answer">可以。它更像是一个安静的信息台，没有强烈的推送感。适合在需要查询时使用，也可以作为延伸阅读的起点。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Q：内容会频繁变化吗？</div>
+                <div class="answer">页面聚焦基础信息与索引，结构稳定，更新节奏平缓。具体动态建议直接参考站内最新内容。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Q：移动端体验如何？</div>
+                <div class="answer">卡片流式布局在手机上会自动适配，无需横向缩放。字号和间距也针对小屏幕做了优化。</div>
+            </div>
+        </div>
+
+        <!-- 结尾的自然链接段落 (再次嵌入链接) 但换个句子 -->
+        <div class="article-block" style="margin-top: 0.2rem;">
+            <p>如果你对信息呈现方式有自己的偏好，或者好奇一个偏向卡片、留白和文字排版的索引页长什么样，不妨直接打开 <a href="https://zh-index-pandasports.com">熊猫体育</a> 感受一下。不需要注册，也不涉及复杂的设置，打开即用。</p>
+        </div>
+
+        <hr>
+
+        <div class="footer-note">
+            — 信息卡片式介绍 · 米白背景 · 文章排版 —
+        </div>
+
+    </div>
+</body>
+</html>
