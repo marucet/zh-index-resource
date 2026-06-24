@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 快速了解体育互动平台</title>
+    <style>
+        /* 极简留白 + 窄正文 + 清晰层级 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #fafafa;
+            color: #1e1e1e;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding: 2.5rem 1.25rem;
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* 主视觉 — 干净小牌 */
+        .hero {
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #111;
+            margin-bottom: 0.75rem;
+        }
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #555;
+            border-left: 3px solid #2b7f6e;
+            padding-left: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        /* 通用卡片模块 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.5rem 1.75rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02), 0 0 0 1px rgba(0,0,0,0.03);
+            transition: box-shadow 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.05);
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 530;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.6rem;
+            color: #1f2a2f;
+        }
+        .card p {
+            font-size: 0.98rem;
+            color: #3c3c3c;
+            margin-bottom: 0.2rem;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+        }
+        .card li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.98rem;
+            color: #3c3c3c;
+        }
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #2b7f6e;
+            font-weight: 600;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            font-size: 1rem;
+            background: #f3f5f4;
+            padding: 1.6rem 1.8rem;
+            border-radius: 20px;
+            margin: 2.2rem 0;
+            color: #1c2a2c;
+            line-height: 1.7;
+        }
+        .link-paragraph a {
+            color: #166b5b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b6d3cb;
+            transition: border-color 0.15s;
+        }
+        .link-paragraph a:hover {
+            border-bottom-color: #166b5b;
+        }
+
+        /* 提示 / faq 摘要 (极简) */
+        .note-block {
+            margin: 2rem 0 2.5rem;
+            padding: 0.8rem 0 0.8rem 1rem;
+            border-left: 3px solid #d0ddd8;
+            color: #3a4a4a;
+            font-size: 0.95rem;
+        }
+        .note-block strong {
+            font-weight: 550;
+            color: #1e3a34;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 500px) {
+            body { padding: 1.5rem 1rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .card { padding: 1.25rem 1.2rem; }
+            .link-paragraph { padding: 1.3rem; }
+        }
+
+        /* 分隔装饰 */
+        .divider {
+            border: none;
+            border-top: 1px solid #e3e8e6;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 主视觉 -->
+    <div class="hero">
+        <h1>爱游戏 · 体育互动平台</h1>
+        <div class="sub">快速识别网站用途，从实际体验出发</div>
+    </div>
+
+    <!-- 用途卡片：网站是做什么的 -->
+    <div class="card-grid">
+
+        <div class="card">
+            <h2>🏅 站内功能速览</h2>
+            <p>围绕体育资讯与轻互动设计，你可以在一个页面里完成信息获取、内容探索和基础操作。工具属性清晰，不用绕弯路。</p>
+            <ul>
+                <li>体育赛事动态与数据摘要</li>
+                <li>赛事日历、排名与简短播报</li>
+                <li>常用功能入口集中展示</li>
+            </ul>
+        </div>
+
+        <!-- 适合人群 -->
+        <div class="card">
+            <h2>👥 适合哪些人</h2>
+            <p>不论你是日常关注联赛的体育迷，还是偶尔想查一下赛程的休闲用户，都能快速上手。平台没有复杂的注册流程，点开即用。</p>
+            <ul>
+                <li>经常浏览体育新闻的普通观众</li>
+                <li>需要快速对比赛果、积分的用户</li>
+                <li>不想下载额外 app，习惯网页轻体验的人</li>
+            </ul>
+        </div>
+
+        <!-- 第三个卡片：场景举例，增加生活感 -->
+        <div class="card">
+            <h2>📌 实际使用场景</h2>
+            <p>下班后用手机打开页面，扫一眼今晚的赛程；午休时通过站点查看喜欢的队伍近期状态。页面响应快，信息直接，没有多余干扰。</p>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 —— 嵌入「爱游戏」 -->
+    <div class="link-paragraph">
+        如果你平时习惯通过一个简洁的体育站点快速了解赛事动态，可以试试
+        <a href="https://chinasports-igame.com">爱游戏</a>。
+        里面把常用功能都放在显眼位置，不需要反复翻找菜单。页面整体以信息展示为主，适合日常随手打开浏览。
+    </div>
+
+    <!-- FAQ 摘要/提示 风格 -->
+    <div class="note-block">
+        <strong>常见疑问 · 短提示</strong><br>
+        • 页面无需登录即可查看大部分内容，部分互动功能可能依赖浏览器特性。<br>
+        • 站点主要面向中文用户，数据更新节奏以主流赛事为准。<br>
+        • 如遇到显示问题，可尝试刷新或更换现代浏览器。
+    </div>
+
+    <hr class="divider">
+
+    <!-- 简短结尾，保持克制 -->
+    <p style="font-size: 0.9rem; color: #6e7b7a; text-align: left;">
+        页面仅作介绍，具体功能以实际站点为准。<br>
+        信息卡片式布局 · 极简留白 · 窄正文宽度
+    </p>
+
+</div>
+</body>
+</html>
